@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Surat Untukmu</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Arial;
+
+background-image:url("wallpaper2.jpg");
+background-size:cover;
+background-position:center;
+}
+
+/* amplop */
+
+#envelope{
+width:200px;
+cursor:pointer;
+transition:0.5s;
+}
+
+/* animasi saat dibuka */
+
+.open{
+transform:scale(1.1) rotate(-5deg);
+}
+
+/* surat */
+
+#letter{
+display:none;
+background:rgba(255,255,255,0.95);
+padding:25px;
+border-radius:15px;
+width:320px;
+text-align:center;
+margin-top:20px;
+animation:fadeIn 1s;
+}
+
+/* animasi surat muncul */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* tombol */
+
+button{
+margin-top:25px;
+padding:10px 25px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+</style>
+
+</head>
+<body>
+
+<img id="envelope" src="envelope.png" onclick="openLetter()">
+
+<div id="letter">
+
+<h3>Untukmu ✨</h3>
+
+<p>
+Haloo, siapa nih yang udah 19 tahun?.<br>
+‎Iyaaa kamu ,Virrr.
+‎Udah hidup 19 tahun di dunia. Itu berarti kamu udah hidup hampir seperlima abad 😂.
+‎Itu tandanya apa? Yap kurang kurangi ya insecure-mu. Knapa sih orang seimut kamu bisa insecure? 
+</p>
+
+<p>
+‎"On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."
+‎(Le Petit Prince, Antoine de Saint-Exupéry)
+‎Artinya Dengan menggunakan hati kita bisa melihat sesuatu dengan jernih. Sesuatu yang begitu penting yang justru tak terlihat oleh mata. Itu artinya apa? Artinya kamu ga boleh lagi nanggepin apa kata orang karena yang penting hatimuu..<br>
+Coba gedein volume. Denger musik ga? Kamu pasti denger lirik A whole a new wonder~ entah kenapa isinya itu seperti berkata aku ingin membawamu ke dunia yang baru, lebih indah dan disitu kamu bisa menggapai mimpimu..<br>
+Tidak perlu ditulis aku juga udah doain kamu yang baik-baik. Segini dulu karena codinganku mentok : ).
+</p>
+
+<button onclick="nextPage()">Lanjut</button>
+
+</div>
+
+<audio id="music">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function openLetter(){
+
+document.getElementById("envelope").classList.add("open");
+
+document.getElementById("letter").style.display="block";
+
+document.getElementById("music").play();
+
+}
+
+function nextPage(){
+
+window.location.href="halaman5.html";
+
+}
+
+</script>
+
+</body>
+</html>
