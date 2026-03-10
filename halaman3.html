@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman 3</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-image: url("wallpaper.jpg"); /* GANTI WALLPAPER SENDIRI */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      width: 350px;
+    }
+
+    img {
+      width: 220px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 8px 18px;
+      margin: 5px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img id="slideImage" src="gift3.gif" alt="Slide Gift">
+    <h2 id="slideText">Sudah sembilan belas tahun dan kamu masih tetap kuat. Tetap begitu yaaa Viraa 😊</h2>
+
+    <div class="buttons">
+      <button onclick="prevSlide()">Back</button>
+      <button onclick="nextSlide()" id="nextBtn">Next</button>
+    </div>
+  </div>
+
+  <script>
+    var currentSlide = 1;
+    var totalSlides = 4;
+
+    // Teks baru tiap slide
+    var slideTexts = [
+      "Sudah sembilan belas tahun dan kamu masih tetap kuat. Tetap begitu yaaa 😊",
+      "Aku percaya itu berat. Tapi apapun itu pasti Allah kasih jalannya 😁",
+      "Kalau masih berat kamu jangan pernah nangis lagi. Cobalah buat senyum. Kadang hal terberat bisa lega kalau kamu senyum. Karena jujur, senyummu itu manis bangett😆",
+      "Menangis bukanlah kelemahan. Tapi ingat, air mata kamu terlalu berharga untuk jatuh pada hal yang tidak pantas. So kurang kurangi yaa✨"
+    ];
+
+    function updateSlide() {
+      // Update gambar
+      document.getElementById("slideImage").src = "gift" + (currentSlide + 2) + ".gif";
+      // Update teks
+      document.getElementById("slideText").innerText = slideTexts[currentSlide - 1];
+
+      // Update tombol Next / Selesai
+      if (currentSlide === totalSlides) {
+        document.getElementById("nextBtn").innerText = "Selesai";
+      } else {
+        document.getElementById("nextBtn").innerText = "Next";
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      } else {
+        // Slide terakhir, lanjut ke halaman 4
+        window.location.href = "halaman4.html";
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+  </script>
+
+</body>
+</html>
