@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kesan & Harapan</title>
+<style>
+body {
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  flex-direction:column;
+  font-family:Arial, sans-serif;
+  background-image:url("wallpaper8.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+  padding:40px;
+  box-sizing:border-box;
+}
+
+/* transisi awal */
+#startScreen {
+  width:100%;
+  text-align:center;
+}
+
+#startScreen button {
+  padding:15px 30px;
+  font-size:20px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(90deg, #ff7eb9, #ff758c);
+  color:white;
+  transition:0.3s;
+}
+
+#startScreen button:hover{
+  transform:scale(1.05);
+}
+
+/* area utama */
+#mainScreen {
+  display:none;
+  width:100%;
+}
+
+h2 {
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* kotak pesan */
+textarea {
+  width:100%;
+  max-width:500px;
+  height:150px;
+  padding:15px;
+  border-radius:15px;
+  border:none;
+  resize:none;
+  font-size:16px;
+  margin-bottom:15px;
+}
+
+/* tombol kirim & kembali */
+button.action {
+  padding:10px 20px;
+  margin:5px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+button.action:hover {
+  transform:scale(1.05);
+}
+
+.buttons {
+  display:flex;
+  justify-content:center;
+}
+</style>
+</head>
+<body>
+
+<!-- Halaman transisi -->
+<div id="startScreen">
+  <h2>Siap untuk memberikan kesanmu?</h2>
+  <button onclick="startMain()">Berikan Kesanmu</button>
+</div>
+
+<!-- Halaman utama -->
+<div id="mainScreen">
+  <h2>Isi kesanmu atau harapanmu</h2>
+  <textarea id="message" placeholder="Tulis pesanmu di sini..."></textarea>
+
+  <div class="buttons">
+    <button class="action" onclick="sendMessage()">Kirim</button>
+    <button class="action" onclick="goHome()">Kembali ke Halaman Awal</button>
+  </div>
+
+  <!-- Musik -->
+  <audio id="music" loop>
+    <source src="musik2.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+function startMain(){
+  // konfirmasi interaksi
+  if(confirm("Oke, mari berikan kesanmu!")){
+    document.getElementById("startScreen").style.display="none";
+    document.getElementById("mainScreen").style.display="block";
+
+    // mainkan musik setelah klik tombol
+    let music=document.getElementById("music");
+    music.play();
+  }
+}
+
+// tampilkan pesan sebelumnya jika ada
+window.onload = function() {
+  let saved = localStorage.getItem("userMessage");
+  if(saved) {
+    document.getElementById("message").value = saved;
+  }
+}
+
+// simpan pesan saat klik kirim
+function sendMessage() {
+  let msg = document.getElementById("message").value;
+  localStorage.setItem("userMessage", msg);
+  alert("Pesan tersimpan! 😊");
+}
+
+// kembali ke halaman awal
+function goHome() {
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
