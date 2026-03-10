@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman 2</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      font-family: Arial, sans-serif;
+
+      background-image: url("wallpaper.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      color: white;
+      width: 300px;
+    }
+
+    img {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #error {
+      margin-top: 10px;
+      color: #ffb3b3;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="gift2.gif" alt="Gift Lucu">
+
+    <h2>Masukkan Password 💌</h2>
+
+    <input type="password" id="password" placeholder="Masukkan di sini">
+    <br>
+    <button onclick="cekPassword()">Masuk</button>
+
+    <div id="error"></div>
+  </div>
+
+  <script>
+    function cekPassword() {
+      var pass = document.getElementById("password").value;
+
+      if (pass === "11032007") {
+        window.location.href = "halaman3.html";
+      } else {
+        document.getElementById("error").innerText = "masih salah nihhh🥲";
+      }
+    }
+  </script>
+
+</body>
+</html>
